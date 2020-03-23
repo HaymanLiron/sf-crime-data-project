@@ -114,6 +114,11 @@ if __name__ == "__main__":
         .appName("KafkaSparkStructuredStreaming") \
         .getOrCreate()
 
+    spark.conf.set("spark.executor.memory", '16g')
+    spark.conf.set('spark.executor.cores', '6')
+    spark.conf.set('spark.cores.max', '6')
+    spark.conf.set("spark.driver.memory", '16g')
+
     logger.info("Spark started")
 
     run_spark_job(spark)
